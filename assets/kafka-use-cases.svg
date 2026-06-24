@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1320" viewBox="0 0 1000 1320" role="img" aria-labelledby="title desc">
+  <title id="title">Top 5 Use Cases of Kafka</title>
+  <desc id="desc">A diagram showing real-time data pipelines, event-driven systems, stream processing, centralized logs and metrics, and CDC change data capture.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 800 58px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 700 22px Arial, sans-serif; fill: #475569; }
+      .label { font: 700 28px Arial, sans-serif; fill: #111827; }
+      .small { font: 500 21px Arial, sans-serif; fill: #334155; }
+      .tiny { font: 500 17px Arial, sans-serif; fill: #475569; }
+      .line { stroke: #64748b; stroke-width: 3; stroke-dasharray: 6 8; }
+      .flow { stroke: #f59e0b; stroke-width: 5; stroke-linecap: round; }
+      .arrow { fill: #f59e0b; }
+      .kafka { font: 800 26px Arial, sans-serif; fill: #111827; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 3; rx: 10; }
+      .topic { fill: #dbeafe; stroke: #2563eb; stroke-width: 3; rx: 10; }
+      .db { fill: #e0f2fe; stroke: #0284c7; stroke-width: 3; }
+      .accent { fill: #f59e0b; }
+      .red { stroke: #ef4444; stroke-width: 4; fill: none; marker-end: url(#redArrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" class="arrow"/>
+    </marker>
+    <marker id="redArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1000" height="1320"/>
+  <text x="70" y="80" class="title">Top 5 Use Cases of Kafka</text>
+  <text x="362" y="118" class="subtitle">Google Sheet source -> Kafka -> SQLite destinations</text>
+
+  <line x1="245" y1="150" x2="245" y2="1230" class="line"/>
+  <line x1="50" y1="365" x2="950" y2="365" class="line"/>
+  <line x1="50" y1="580" x2="950" y2="580" class="line"/>
+  <line x1="50" y1="795" x2="950" y2="795" class="line"/>
+  <line x1="50" y1="1010" x2="950" y2="1010" class="line"/>
+
+  <!-- Row 1 -->
+  <text x="55" y="245" class="label">Real-time</text>
+  <text x="55" y="280" class="label">Data Pipelines</text>
+  <rect x="305" y="195" width="130" height="70" class="db"/>
+  <text x="322" y="238" class="small">Sheet</text>
+  <text x="470" y="237" class="kafka">Kafka</text>
+  <rect x="635" y="175" width="135" height="60" class="topic"/>
+  <text x="660" y="212" class="small">topic</text>
+  <rect x="820" y="195" width="92" height="70" class="db"/>
+  <text x="840" y="238" class="small">SQLite</text>
+  <line x1="435" y1="230" x2="465" y2="230" class="flow" marker-end="url(#arrow)"/>
+  <line x1="555" y1="230" x2="635" y2="205" class="flow" marker-end="url(#arrow)"/>
+  <line x1="770" y1="205" x2="820" y2="230" class="flow" marker-end="url(#arrow)"/>
+  <path d="M650 155 C690 120, 750 120, 800 155" class="red"/>
+  <text x="610" y="295" class="tiny">Producer sends rows; consumer writes destination DB</text>
+
+  <!-- Row 2 -->
+  <text x="60" y="465" class="label">Event-Driven</text>
+  <text x="86" y="500" class="label">Systems</text>
+  <rect x="295" y="420" width="120" height="70" class="box"/>
+  <text x="323" y="463" class="small">Service</text>
+  <text x="465" y="463" class="kafka">Kafka</text>
+  <rect x="615" y="395" width="120" height="55" class="topic"/>
+  <text x="637" y="430" class="small">events</text>
+  <rect x="615" y="475" width="120" height="55" class="topic"/>
+  <text x="637" y="510" class="small">events</text>
+  <rect x="805" y="420" width="95" height="70" class="box"/>
+  <text x="826" y="463" class="small">Apps</text>
+  <line x1="415" y1="455" x2="465" y2="455" class="flow" marker-end="url(#arrow)"/>
+  <line x1="555" y1="455" x2="615" y2="423" class="flow" marker-end="url(#arrow)"/>
+  <line x1="555" y1="455" x2="615" y2="503" class="flow" marker-end="url(#arrow)"/>
+  <line x1="735" y1="423" x2="805" y2="455" class="flow" marker-end="url(#arrow)"/>
+  <line x1="735" y1="503" x2="805" y2="455" class="flow" marker-end="url(#arrow)"/>
+  <path d="M295 405 C260 410, 260 495, 295 500" class="red"/>
+  <text x="610" y="548" class="tiny">One event can drive many subscribers independently</text>
+
+  <!-- Row 3 -->
+  <text x="77" y="675" class="label">Stream</text>
+  <text x="55" y="710" class="label">Processing</text>
+  <rect x="300" y="635" width="115" height="70" class="db"/>
+  <text x="322" y="678" class="small">Input</text>
+  <text x="460" y="678" class="kafka">Kafka</text>
+  <rect x="590" y="620" width="135" height="70" class="box"/>
+  <text x="615" y="663" class="small">Processor</text>
+  <text x="760" y="678" class="kafka">Kafka</text>
+  <rect x="875" y="635" width="70" height="70" class="db"/>
+  <text x="887" y="678" class="tiny">DB</text>
+  <line x1="415" y1="670" x2="460" y2="670" class="flow" marker-end="url(#arrow)"/>
+  <line x1="545" y1="670" x2="590" y2="655" class="flow" marker-end="url(#arrow)"/>
+  <line x1="725" y1="655" x2="760" y2="670" class="flow" marker-end="url(#arrow)"/>
+  <line x1="840" y1="670" x2="875" y2="670" class="flow" marker-end="url(#arrow)"/>
+  <path d="M600 710 C650 755, 720 745, 750 700" class="red"/>
+  <text x="560" y="748" class="tiny">Consume input topic, publish processed output topic</text>
+
+  <!-- Row 4 -->
+  <text x="52" y="890" class="label">Centralized</text>
+  <text x="48" y="925" class="label">Logs &amp; Metrics</text>
+  <rect x="300" y="850" width="125" height="70" class="box"/>
+  <text x="323" y="893" class="small">Apps</text>
+  <rect x="495" y="850" width="120" height="70" class="box"/>
+  <text x="516" y="893" class="small">Collector</text>
+  <text x="665" y="893" class="kafka">Kafka</text>
+  <rect x="805" y="830" width="100" height="50" class="topic"/>
+  <text x="827" y="862" class="small">logs</text>
+  <rect x="805" y="900" width="100" height="50" class="topic"/>
+  <text x="818" y="932" class="small">metrics</text>
+  <line x1="425" y1="885" x2="495" y2="885" class="flow" marker-end="url(#arrow)"/>
+  <line x1="615" y1="885" x2="665" y2="885" class="flow" marker-end="url(#arrow)"/>
+  <line x1="745" y1="885" x2="805" y2="855" class="flow" marker-end="url(#arrow)"/>
+  <line x1="745" y1="885" x2="805" y2="925" class="flow" marker-end="url(#arrow)"/>
+  <path d="M490 835 C520 800, 600 800, 625 835" class="red"/>
+  <text x="520" y="972" class="tiny">Kafka buffers operational telemetry for observability sinks</text>
+
+  <!-- Row 5 -->
+  <text x="92" y="1090" class="label">CDC</text>
+  <text x="34" y="1125" class="label">Change Data</text>
+  <text x="70" y="1160" class="label">Capture</text>
+  <rect x="305" y="1065" width="115" height="70" class="db"/>
+  <text x="332" y="1108" class="small">DB</text>
+  <rect x="485" y="1065" width="130" height="70" class="box"/>
+  <text x="512" y="1108" class="small">Debezium</text>
+  <text x="665" y="1108" class="kafka">Kafka</text>
+  <rect x="805" y="1045" width="100" height="50" class="topic"/>
+  <text x="825" y="1077" class="small">CDC</text>
+  <rect x="805" y="1115" width="100" height="50" class="db"/>
+  <text x="824" y="1147" class="small">Sinks</text>
+  <line x1="420" y1="1100" x2="485" y2="1100" class="flow" marker-end="url(#arrow)"/>
+  <line x1="615" y1="1100" x2="665" y2="1100" class="flow" marker-end="url(#arrow)"/>
+  <line x1="745" y1="1100" x2="805" y2="1070" class="flow" marker-end="url(#arrow)"/>
+  <line x1="745" y1="1100" x2="805" y2="1140" class="flow" marker-end="url(#arrow)"/>
+  <path d="M450 1045 C500 1010, 585 1010, 635 1045" class="red"/>
+  <text x="505" y="1192" class="tiny">Change events move downstream through Kafka topics</text>
+</svg>
